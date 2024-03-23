@@ -34,6 +34,7 @@
 	import { useConvTreeStore } from "$lib/stores/convTree";
 
 	import * as Select from "$lib/components/ui/select/index.js";
+	import * as Avatar from "$lib/components/ui/avatar/index.js";
 
 	export let messages: Message[] = [];
 	export let loading = false;
@@ -135,6 +136,29 @@
 </script>
 
 <div class="relative min-h-0 min-w-0">
+	<div
+		class="flex-no-wrap fixed relative top-0 mx-0 mb-1 mt-1.5 flex w-full justify-between px-4 py-0 lg:flex-wrap lg:py-4"
+	>
+		<Select.Root>
+			<Select.Trigger class="w-[180px]">
+				<Select.Value placeholder="ChatGPT 3.5" />
+			</Select.Trigger>
+			<Select.Content>
+				<Select.Group>
+					<Select.Label>GPT</Select.Label>
+					{#each availableModels as model}
+						<Select.Item value={model.value} label={model.label}>{model.label}</Select.Item>
+					{/each}
+				</Select.Group>
+			</Select.Content>
+			<Select.Input name="favoriteModel" />
+		</Select.Root>
+
+		<Avatar.Root>
+			<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+			<Avatar.Fallback>CN</Avatar.Fallback>
+		</Avatar.Root>
+	</div>
 	{#if loginModalOpen}
 		<LoginModal
 			on:close={() => {
@@ -147,22 +171,6 @@
 		use:snapScrollToBottom={messages.length ? [...messages] : false}
 		bind:this={chatContainer}
 	>
-		<div class="ml-5 mt-5 flex">
-			<Select.Root>
-				<Select.Trigger class="w-[180px]">
-					<Select.Value placeholder="ChatGPT 3.5" />
-				</Select.Trigger>
-				<Select.Content>
-					<Select.Group>
-						<Select.Label>GPT</Select.Label>
-						{#each availableModels as model}
-							<Select.Item value={model.value} label={model.label}>{model.label}</Select.Item>
-						{/each}
-					</Select.Group>
-				</Select.Content>
-				<Select.Input name="favoriteModel" />
-			</Select.Root>
-		</div>
 		<div class="mx-auto flex h-full max-w-3xl flex-col gap-6 px-5 pt-6 sm:gap-8 xl:max-w-4xl">
 			{#if $page.data?.assistant}
 				<a

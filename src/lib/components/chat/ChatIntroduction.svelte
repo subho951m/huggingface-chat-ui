@@ -27,7 +27,7 @@
 	const dispatch = createEventDispatcher<{ message: string }>();
 </script>
 
-<div class="my-auto grid gap-8">
+<div class="my-auto mt-0 grid gap-8">
 	<div class="lg:row-span-2 lg:mt-6">
 		<p class="text-5xl">Hello Subham</p>
 		<p class="text-5xl">How can I assist you today?</p>
@@ -67,5 +67,5 @@
 			</button>
 		</div>
 	</div>
-	<div class="h-40 sm:h-24" />
+	<div class="h-60 sm:h-24" />
 </div>
