@@ -177,24 +177,19 @@
 
 {#if message.from === "assistant"}
 	<div
-		class="group relative -mb-6 flex items-start justify-start gap-4 pb-4 leading-relaxed"
+		class="leading-1.5 ml-2 flex w-full max-w-[320px] flex-col rounded-e-xl rounded-es-xl border-gray-200 bg-gray-100 p-4 text-base dark:bg-gray-700"
 		role="presentation"
 		on:click={() => (isTapped = !isTapped)}
 		on:keydown={() => (isTapped = !isTapped)}
 	>
-		{#if $page.data?.assistant?.avatar}
-			<img
-				src="{base}/settings/assistants/{$page.data.assistant._id}/avatar.jpg"
-				alt="Avatar"
-				class="mt-5 h-3 w-3 flex-none select-none rounded-full shadow-lg"
-			/>
-		{:else}
-			<img
-				alt=""
-				src="https://huggingface.co/avatars/2edb18bd0206c16b433841a47f53fa8e.svg"
-				class="mt-5 h-3 w-3 flex-none select-none rounded-full shadow-lg"
-			/>
-		{/if}
+		<div
+			class="left relative -left-8 -top-4 top-0 -z-10 h-0
+  w-0 rounded
+  border-l-[20px] border-r-[20px]
+  border-t-[20px] border-l-transparent border-r-transparent border-t-red-200"
+		/>
+		<!-- arrow -->
+
 		<div
 			class="relative min-h-[calc(2rem+theme(spacing[3.5])*2)] min-w-[60px] break-words rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 px-5 py-3.5 text-gray-600 prose-pre:my-2 dark:border-gray-800 dark:from-gray-800/40 dark:text-gray-300"
 		>
