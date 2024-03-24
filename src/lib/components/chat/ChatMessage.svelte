@@ -183,7 +183,7 @@
 		on:keydown={() => (isTapped = !isTapped)}
 	>
 		<div
-			class="left relative -left-8 -top-4 top-0 -z-10 h-0
+			class="left relative -left-8 -top-4 -z-10 h-0
   w-0 rounded
   border-l-[20px] border-r-[20px]
   border-t-[20px] border-l-transparent border-r-transparent border-t-red-200"
