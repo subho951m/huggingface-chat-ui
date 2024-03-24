@@ -290,11 +290,18 @@
 {/if}
 {#if message.from === "user"}
 	<div
-		class="group relative w-full items-start justify-start gap-4 max-sm:text-sm"
+		class="leading-1.5 ml-2 flex w-full max-w-[320px] flex-col self-end rounded-bl-xl rounded-br-xl rounded-tl-xl border-gray-200 bg-gray-100 p-4 text-base dark:bg-gray-700"
 		role="presentation"
 		on:click={() => (isTapped = !isTapped)}
 		on:keydown={() => (isTapped = !isTapped)}
 	>
+		<div
+			class="left relative -right-[280px] -top-4 -z-10 h-0
+  w-0 rounded
+  border-l-[20px] border-r-[20px]
+  border-t-[20px] border-l-transparent border-r-transparent border-t-red-200"
+		/>
+		<!-- arrow -->
 		<div class="flex w-full flex-col">
 			{#if message.files && message.files.length > 0}
 				<div class="mx-auto grid w-fit grid-cols-2 gap-5 px-5">
