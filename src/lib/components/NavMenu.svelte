@@ -10,6 +10,8 @@
 	import type { ConvSidebar } from "$lib/types/ConvSidebar";
 	import type { Model } from "$lib/types/Model";
 	import { page } from "$app/stores";
+	import CarbonMoon from "~icons/carbon/moon";
+	import CarbonSettings from "~icons/carbon/settings";
 
 	export let conversations: ConvSidebar[] = [];
 	export let canLogin: boolean;
@@ -112,7 +114,7 @@
 		type="button"
 		class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
 	>
-		Theme
+		<CarbonMoon style="font-size: 13px" /> Theme
 	</button>
 	{#if nModels > 1}
 		<a
@@ -143,7 +145,7 @@
 		href="{base}/settings"
 		class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
 	>
-		Settings
+		<CarbonSettings style="font-size: 13px" />Settings
 	</a>
 	{#if PUBLIC_APP_NAME === "HuggingChat"}
 		<a

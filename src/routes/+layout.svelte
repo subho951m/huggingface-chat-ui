@@ -195,7 +195,7 @@
 <div
 	class="grid h-full w-screen grid-cols-1 grid-rows-[auto,1fr] overflow-hidden text-smd {!isNavCollapsed
 		? 'md:grid-cols-[280px,1fr]'
-		: 'md:grid-cols-[56px,1fr]'} transition-[300ms] [transition-property:grid-template-columns] md:grid-rows-[1fr] dark:text-gray-300"
+		: 'md:grid-cols-[60px,1fr]'} transition-[300ms] [transition-property:grid-template-columns] md:grid-rows-[1fr] dark:text-gray-300"
 >
 	<MobileNav isOpen={isNavOpen} on:toggle={(ev) => (isNavOpen = ev.detail)} title={mobileNavTitle}>
 		<NavMenu
@@ -209,7 +209,7 @@
 	</MobileNav>
 	<nav
 		class=" grid max-h-screen grid-cols-1 grid-rows-[auto,1fr,auto] overflow-hidden *:w-[{isNavCollapsed
-			? '56px'
+			? '60px'
 			: '280px'}] max-md:hidden"
 	>
 		{#if !isNavCollapsed}
