@@ -12,6 +12,7 @@
 	import { page } from "$app/stores";
 	import CarbonMoon from "~icons/carbon/moon";
 	import CarbonSettings from "~icons/carbon/settings";
+	import CarbonAdd from "~icons/carbon/add";
 
 	export let conversations: ConvSidebar[] = [];
 	export let canLogin: boolean;
@@ -48,7 +49,9 @@
 	const nModels: number = $page.data.models.filter((el: Model) => !el.unlisted).length;
 </script>
 
-<div class="sticky top-0 flex flex-col items-center justify-between px-3 py-3.5 max-sm:pt-0">
+<div
+	class="sticky top-0 mb-0.5 flex flex-col items-center justify-between rounded-r-xl from-gray-50 px-3 py-3.5 max-sm:bg-gradient-to-t max-sm:pt-0 md:bg-gradient-to-l dark:from-gray-800/30"
+>
 	<a
 		class="flex items-center rounded-xl pb-4 pt-2 text-lg font-semibold"
 		href="{PUBLIC_ORIGIN}{base}/"
@@ -59,9 +62,10 @@
 	<a
 		href={`${base}/`}
 		on:click={handleNewChatClick}
-		class="flex rounded-lg border bg-white px-2 py-0.5 text-center shadow-sm hover:shadow-none dark:border-gray-600 dark:bg-gray-700"
+		class="flex h-10 items-center rounded-3xl border bg-white px-2 py-0.5 text-center shadow-sm hover:shadow-none dark:border-gray-600 dark:bg-gray-700"
 	>
-		New Chat
+		<CarbonAdd style="font-size: 22px" />
+		<span class="my-2 ml-4 mr-2 w-20 text-left font-medium"> New Chat </span>
 	</a>
 </div>
 <div
