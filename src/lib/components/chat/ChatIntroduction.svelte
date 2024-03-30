@@ -27,7 +27,7 @@
 	const dispatch = createEventDispatcher<{ message: string }>();
 </script>
 
-<div class="my-auto mt-0 grid gap-8">
+<div class="my-auto mt-0 flex flex-col gap-8">
 	<div class="lg:row-span-2 lg:mt-6">
 		<p class="text-5xl">Hello Subham</p>
 		<p class="text-5xl">How can I assist you today?</p>
@@ -40,30 +40,38 @@
 			<button
 				type="button"
 				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", example.prompt)}
+				on:click={() =>
+					dispatch(
+						"message",
+						"As a restaurant owner, write a professional email to the supplier to get these products every week: \n\n- Wine (x10)\n- Eggs (x24)\n- Bread (x12)"
+					)}
 			>
-				Hello World! 1
+				{"Write an email from bullet list"}
 			</button>
 			<button
 				type="button"
-				class="rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", example.prompt)}
+				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+				on:click={() =>
+					dispatch(
+						"message",
+						"Code a basic snake game in python, give explanations for each step."
+					)}
 			>
-				Hello World! 2
+				{"Code a snake game"}
 			</button>
 			<button
 				type="button"
-				class="rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", example.prompt)}
+				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+				on:click={() => dispatch("message", "How do I make a delicious lemon cheesecake?")}
 			>
-				Hello World! 3
+				{"Assist in a task"}
 			</button>
 			<button
 				type="button"
-				class="rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", example.prompt)}
+				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+				on:click={() => dispatch("message", "Suggest me joke on cricket?")}
 			>
-				Hello World! 4
+				{"Make a joke on Cricket"}
 			</button>
 		</div>
 	</div>

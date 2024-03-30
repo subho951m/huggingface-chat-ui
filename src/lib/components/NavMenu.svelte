@@ -13,6 +13,8 @@
 	import CarbonMoon from "~icons/carbon/moon";
 	import CarbonSettings from "~icons/carbon/settings";
 	import CarbonAdd from "~icons/carbon/add";
+	import CarbonLogin from "~icons/carbon/login";
+	import CarbonBot from "~icons/carbon/bot";
 
 	export let conversations: ConvSidebar[] = [];
 	export let canLogin: boolean;
@@ -103,16 +105,16 @@
 			</button>
 		</form>
 	{/if}
-	{#if canLogin}
-		<form action="{base}/login" method="POST" target="_parent">
-			<button
-				type="submit"
-				class="flex h-9 w-full flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
-			>
-				Login
-			</button>
-		</form>
-	{/if}
+
+	<form action="{base}/login" method="POST" target="_parent">
+		<button
+			type="submit"
+			class="flex h-9 w-full flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+		>
+			<CarbonLogin style="font-size: 13px" /> Login
+		</button>
+	</form>
+
 	<button
 		on:click={switchTheme}
 		type="button"
@@ -120,18 +122,18 @@
 	>
 		<CarbonMoon style="font-size: 13px" /> Theme
 	</button>
-	{#if nModels > 1}
-		<a
-			href="{base}/models"
-			class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+
+	<a
+		href="{base}/models"
+		class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+	>
+		<CarbonBot style="font-size: 13px" />Models
+		<span
+			class="ml-auto rounded-full border border-gray-300 px-2 py-0.5 text-xs text-gray-500 dark:border-gray-500 dark:text-gray-400"
+			>{nModels}</span
 		>
-			Models
-			<span
-				class="ml-auto rounded-full border border-gray-300 px-2 py-0.5 text-xs text-gray-500 dark:border-gray-500 dark:text-gray-400"
-				>{nModels}</span
-			>
-		</a>
-	{/if}
+	</a>
+
 	{#if $page.data.enableAssistants}
 		<a
 			href="{base}/assistants"

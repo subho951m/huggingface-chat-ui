@@ -200,6 +200,9 @@ MODELS=`[
       }, {
         "title": "Assist in a task",
         "prompt": "How do I make a delicious lemon cheesecake?"
+      }, {
+          "title": "Assist in a task",
+          "prompt": "How do I make a delicious lemon cheesecake?"
       }
     ]
   }
