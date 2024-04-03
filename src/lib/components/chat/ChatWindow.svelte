@@ -135,7 +135,7 @@
 	];
 </script>
 
-<div class=" border-l-8 border-indigo-600 relative min-h-0 min-w-0">
+<div class=" relative min-h-0 min-w-0 border-l-[16px] border-gray-800">
 	<div
 		class="flex-no-wrap fixed relative top-0 mx-0 mb-1 mt-1.5 flex w-full justify-between px-4 py-0 lg:flex-wrap lg:py-4"
 	>

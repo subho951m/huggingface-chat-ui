@@ -48,7 +48,7 @@
 			/>
 			{conv.title.replace(/\p{Emoji}/gu, "")}
 		{:else}
-			<div class="flex">
+			<div class="flex items-center justify-center gap-1.5">
 				<CarbonChat />
 				<span>{conv.title.replace(/\p{Emoji}/gu, "")}</span>
 			</div>

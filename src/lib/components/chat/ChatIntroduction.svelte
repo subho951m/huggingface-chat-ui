@@ -37,42 +37,15 @@
 			Confused what to search? Start with our recommendations
 		</p>
 		<div class="grid gap-3 lg:grid-cols-4 lg:gap-4">
-			<button
-				type="button"
-				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() =>
-					dispatch(
-						"message",
-						"As a restaurant owner, write a professional email to the supplier to get these products every week: \n\n- Wine (x10)\n- Eggs (x24)\n- Bread (x12)"
-					)}
-			>
-				{"Write an email from bullet list"}
-			</button>
-			<button
-				type="button"
-				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() =>
-					dispatch(
-						"message",
-						"Code a basic snake game in python, give explanations for each step."
-					)}
-			>
-				{"Code a snake game"}
-			</button>
-			<button
-				type="button"
-				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", "How do I make a delicious lemon cheesecake?")}
-			>
-				{"Assist in a task"}
-			</button>
-			<button
-				type="button"
-				class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-				on:click={() => dispatch("message", "Suggest me joke on cricket?")}
-			>
-				{"Make a joke on Cricket"}
-			</button>
+			{#each currentModelMetadata.promptExamples as example}
+				<button
+					type="button"
+					class="h-48 rounded-xl border bg-gray-50 p-3 text-gray-600 hover:bg-gray-100 max-xl:text-sm xl:p-3.5 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+					on:click={() => dispatch("message", example.prompt)}
+				>
+					{example.title}
+				</button>
+			{/each}
 		</div>
 	</div>
 	<div class="h-60 sm:h-24" />
