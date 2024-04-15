@@ -29,6 +29,9 @@
 	});
 
 	const settings = useSettingsStore();
+
+	console.log(data.models);
+	// console.log($settings);
 </script>
 
 <div
@@ -118,14 +121,14 @@
 			</a>
 		{/if}
 
-		<a
+		<!-- <a
 			href="{base}/settings"
 			class="group mt-auto flex h-10 flex-none items-center gap-2 pl-3 pr-2 text-sm text-gray-500 hover:bg-gray-100 max-md:order-first md:rounded-xl
 				{$page.url.pathname === `${base}/settings` ? '!bg-gray-100 !text-gray-800' : ''}"
 		>
 			<UserIcon class="text-sm" />
 			Application Settings
-		</a>
+		</a> -->
 	</div>
 	<div
 		class="col-span-1 w-full overflow-y-auto overflow-x-clip px-1 max-md:pt-4 md:col-span-2 md:row-span-2"

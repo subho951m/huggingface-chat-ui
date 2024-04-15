@@ -32,9 +32,11 @@
 	import SystemPromptModal from "../SystemPromptModal.svelte";
 	import ChatIntroduction from "./ChatIntroduction.svelte";
 	import { useConvTreeStore } from "$lib/stores/convTree";
+	import { Textarea } from "$lib/components/ui/textarea";
 
 	import * as Select from "$lib/components/ui/select/index.js";
 	import * as Avatar from "$lib/components/ui/avatar/index.js";
+	import { useSettingsStore } from "$lib/stores/settings";
 
 	export let messages: Message[] = [];
 	export let loading = false;
@@ -126,26 +128,28 @@
 		scrollToBottom();
 	}
 
-	const availableModels = [
-		{ value: "gpt-3.4", label: "gpt 3.4" },
-		{ value: "gpt-4.0", label: "gpt 4.0" },
-		{ value: "gpt-5.0", label: "gpt 5.0" },
-		{ value: "gpt-6.0", label: "gpt 6.0" },
-		{ value: "gpt-7.0", label: "gpt 7.0" },
-	];
+	const availableModels: [] = $page.data.models.map((model) => ({
+		label: model.name,
+		value: model.id,
+	}));
+
+	const settings = useSettingsStore();
 </script>
 
 <div class=" relative min-h-0 min-w-0 border-l-[16px] border-gray-800">
 	<div
 		class="flex-no-wrap fixed relative top-0 mx-0 mb-1 mt-1.5 flex w-full justify-between px-4 py-0 lg:flex-wrap lg:py-4"
 	>
-		<Select.Root>
+		<Select.Root
+			onSelectedChange={(v) => {
+				v && ($settings.activeModel = v.value);
+			}}
+		>
 			<Select.Trigger class="w-[180px]">
-				<Select.Value placeholder="ChatGPT 3.5" />
+				<Select.Value placeholder={$settings.activeModel} />
 			</Select.Trigger>
 			<Select.Content>
 				<Select.Group>
-					<Select.Label>GPT</Select.Label>
 					{#each availableModels as model}
 						<Select.Item value={model.value} label={model.label}>{model.label}</Select.Item>
 					{/each}
@@ -153,6 +157,11 @@
 			</Select.Content>
 			<Select.Input name="favoriteModel" />
 		</Select.Root>
+
+		<Textarea
+			class="min-h-[15px] w-1/2 bg-gray-800"
+			bind:value={$settings.customPrompts[$settings.activeModel]}
+		/>
 
 		<Avatar.Root>
 			<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />

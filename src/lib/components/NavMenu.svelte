@@ -15,6 +15,8 @@
 	import CarbonAdd from "~icons/carbon/add";
 	import CarbonLogin from "~icons/carbon/login";
 	import CarbonBot from "~icons/carbon/bot";
+	import { useSettingsStore } from "$lib/stores/settings";
+	import { goto } from "$app/navigation";
 
 	export let conversations: ConvSidebar[] = [];
 	export let canLogin: boolean;
@@ -49,6 +51,12 @@
 	} as const;
 
 	const nModels: number = $page.data.models.filter((el: Model) => !el.unlisted).length;
+
+	const settings = useSettingsStore();
+	// console.log(settings);
+	const url: string = "/settings/" + $settings.activeModel;
+	// console.log(base);
+	// console.log(url);
 </script>
 
 <div
@@ -124,7 +132,7 @@
 		<CarbonMoon style="font-size: 13px" /> Theme
 	</button>
 
-	<a
+	<!-- <a
 		href="{base}/models"
 		class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
 	>
@@ -133,7 +141,7 @@
 			class="ml-auto rounded-full border border-gray-300 px-2 py-0.5 text-xs text-gray-500 dark:border-gray-500 dark:text-gray-400"
 			>{nModels}</span
 		>
-	</a>
+	</a> -->
 
 	{#if $page.data.enableAssistants}
 		<a
@@ -149,7 +157,8 @@
 	{/if}
 
 	<a
-		href="{base}/settings"
+		href="/"
+		on:click|preventDefault={() => goto(url)}
 		class="flex h-9 flex-none items-center gap-1.5 rounded-lg pl-2.5 pr-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
 	>
 		<CarbonSettings style="font-size: 13px" />Settings

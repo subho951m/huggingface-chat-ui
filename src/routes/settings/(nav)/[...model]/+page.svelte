@@ -25,6 +25,8 @@
 	$: isActive = $settings.activeModel === $page.params.model;
 
 	$: model = $page.data.models.find((el: BackendModel) => el.id === $page.params.model);
+
+	// export const trailingSlash = "always";
 </script>
 
 <div class="flex flex-col items-start">
