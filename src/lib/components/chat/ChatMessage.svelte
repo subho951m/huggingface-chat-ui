@@ -177,16 +177,13 @@
 
 {#if message.from === "assistant"}
 	<div
-		class="leading-1.5 ml-2 flex w-full max-w-[320px] flex-col rounded-e-xl rounded-es-xl border-gray-200 bg-gray-100 p-4 text-base dark:bg-gray-700"
+		class="leading-1.5 ml-2 flex w-full max-w-[750px] flex-col rounded-e-xl rounded-es-xl border-gray-200 bg-gray-100 px-4 pb-4 pt-0 text-base dark:bg-gray-700"
 		role="presentation"
 		on:click={() => (isTapped = !isTapped)}
 		on:keydown={() => (isTapped = !isTapped)}
 	>
 		<div
-			class="left relative -left-8 -top-4 -z-10 h-0
-  w-0 rounded
-  border-l-[20px] border-r-[20px]
-  border-t-[20px] border-l-transparent border-r-transparent border-t-red-200"
+			class="left relative -left-8 top-0 -z-10 h-0 w-0 rounded border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-red-200"
 		/>
 		<!-- arrow -->
 

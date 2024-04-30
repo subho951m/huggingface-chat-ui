@@ -33,6 +33,7 @@
 	import ChatIntroduction from "./ChatIntroduction.svelte";
 	import { useConvTreeStore } from "$lib/stores/convTree";
 	import { Textarea } from "$lib/components/ui/textarea";
+	import * as Tooltip from "$lib/components/ui/tooltip/index.js";
 
 	import * as Select from "$lib/components/ui/select/index.js";
 	import * as Avatar from "$lib/components/ui/avatar/index.js";
@@ -134,6 +135,9 @@
 	}));
 
 	const settings = useSettingsStore();
+	let isFocused = false;
+	// if (messages.length > 0) console.log("Clicked");
+	// If messages array length changes we will use transition
 </script>
 
 <div class=" relative min-h-0 min-w-0 border-l-[16px] border-gray-800">
@@ -158,10 +162,20 @@
 			<Select.Input name="favoriteModel" />
 		</Select.Root>
 
-		<Textarea
-			class="min-h-[15px] w-1/2 bg-gray-800"
-			bind:value={$settings.customPrompts[$settings.activeModel]}
-		/>
+		<Tooltip.Root>
+			<Tooltip.Trigger class="min-h-[15px] {isFocused ? 'w-1/2' : 'w-1/4'}">
+				<Textarea
+					class="resize-none bg-gray-800"
+					placeholder="Enter system prompt"
+					on:focus={() => (isFocused = true)}
+					on:blur={() => (isFocused = false)}
+					bind:value={$settings.customPrompts[$settings.activeModel]}
+				/>
+			</Tooltip.Trigger>
+			<Tooltip.Content>
+				<p>This is your system prompt</p>
+			</Tooltip.Content>
+		</Tooltip.Root>
 
 		<Avatar.Root>
 			<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
