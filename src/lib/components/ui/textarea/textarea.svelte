@@ -15,7 +15,7 @@
 
 <textarea
 	class={cn(
-		"textarea-scrollbar flex h-[36px] w-full overflow-x-auto whitespace-nowrap rounded-md border border-input bg-background px-3 py-0.5 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+		"textarea-scrollbar flex h-[36px] w-full overflow-x-auto whitespace-nowrap rounded-md border border-input bg-background px-3 py-0.5 pl-1 pt-1.5 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
 		className
 	)}
 	bind:value
