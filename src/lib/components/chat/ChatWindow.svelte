@@ -165,7 +165,7 @@
 		<Tooltip.Root>
 			<Tooltip.Trigger class="min-h-[15px] {isFocused ? 'w-1/2' : 'w-1/4'}">
 				<Textarea
-					class="resize-none bg-gray-800"
+					class="resize-none bg-gray-100 dark:bg-gray-800"
 					placeholder="Enter system prompt"
 					on:focus={() => (isFocused = true)}
 					on:blur={() => (isFocused = false)}

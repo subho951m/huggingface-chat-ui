@@ -193,7 +193,7 @@
 />
 
 <div
-	class="grid h-full w-screen grid-cols-1 grid-rows-[auto,1fr] overflow-hidden border-[16px] border-gray-300 text-smd dark:border-gray-800 {!isNavCollapsed
+	class="grid h-full w-screen grid-cols-1 grid-rows-[auto,1fr] overflow-hidden border-gray-300 text-smd dark:border-gray-800 {!isNavCollapsed
 		? 'md:grid-cols-[280px,1fr]'
 		: 'md:grid-cols-[60px,1fr]'} transition-[300ms] [transition-property:grid-template-columns] md:grid-rows-[1fr] dark:text-gray-300"
 >
